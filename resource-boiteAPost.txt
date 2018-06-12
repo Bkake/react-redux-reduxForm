@@ -1,0 +1,43 @@
+## Docs react and redux : 
+react : https://reactjs.org/docs/try-react.html
+redux : https://redux.js.org/introduction
+redux-from : https://redux-form.com/7.3.0/docs/gettingstarted.md/
+
+
+## Mise en place de l'API:
+https://github.com/typicode/json-server
+https://github.com/typicode/jsonplaceholder
+
+#JsonServer : 
+install : npm install -g json-server
+start   : json-server --watch db.json
+
+# Casual Fake data generator
+https://github.com/boo1ean/casual
+npm install casual
+Create fillDB.js in the project
+==== content fillDB =============
+var casual = require('casual');
+
+module.exports = () => {
+    const data = { posts: [] }
+    // Create 1000 users
+    for (let i = 0; i < 25; i++) {
+      data.users.push({ id: i, title: casual.title, content:casual.sentences(n=50), author: casual.name })
+    }
+    return data
+  }
+Run : json-server --watch fillDB.js
+
+# Animations : Pour avoir des effets sur l'IHM lors 
+de la suppression d'un post ou de l'affichage de la liste des posts
+
+Il fault installer react-transition-group@1.1.1 comme suit: 
+npm install react-transition-group@1.1.1
+
+Après l'importer là où on veut avec :
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+
+# Redux Form: 
+npm install redux-form 
+resource : https://redux-form.com/7.3.0/docs/gettingstarted.md/
